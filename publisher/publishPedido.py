@@ -16,13 +16,13 @@ channel.exchange_declare(
     durable=True)
 
 mensagem = {
-    "marca": "New Balance",
+    "marca": "TESTE",
     "produtos": [
         {
-            "id": 1935,
-            "nome": "Peita São Paulo",
-            "preco": 499.99,
-            "porcentagem": 10,
+            "id": 2913,
+            "nome": "TESTE - ahahahahah",
+            "preco": 19.99,
+            "porcentagem": 0,
             "dataInicio": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
             "dataFim": (datetime.utcnow() + timedelta(days=15)).strftime("%Y-%m-%dT%H:%M:%SZ")
         }
@@ -35,11 +35,10 @@ channel.basic_publish(
     exchange=exchange_name,
     routing_key='',
     body=mensagem_json.encode('utf-8'),
-    properties=pika.BasicProperties(
-        delivery_mode=2,
-    ))
+    properties=pika.BasicProperties(delivery_mode=2)
+)
 
-print(f"[{datetime.now()}] Mensagem Promocool publicada via Fanout:")
+print(f"[{datetime.now()}] Mensagem Promocao publicada via Fanout:")
 print(mensagem_json)
 print("\nMensagem enviada para TODOS os consumidores vinculados ao exchange!")
 

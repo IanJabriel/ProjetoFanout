@@ -1,0 +1,68 @@
+[2025-05-26 18:59:36.790427] Erro na API
+Tipo: 409
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 3,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 0,
+      "dataInicio": "2025-05-26T21:59:35Z",
+      "dataFim": "2025-06-10T21:59:35Z"
+    }
+  ]
+}
+Resposta da API: {"detail":{"status":"erro","mensagem":"0 produto(s) processado(s) com sucesso","erros":["Produto TESTE - ahahahahah: já existe promoção ativa para este produto no período de 2025-05-26T21:59:35Z a 2025-06-10T21:59:35Z"]}}
+
+[2025-05-26 19:00:03.847313] Erro na API
+Tipo: 409
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 9,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 0,
+      "dataInicio": "2025-05-26T22:00:02Z",
+      "dataFim": "2025-06-10T22:00:02Z"
+    }
+  ]
+}
+Resposta da API: {"detail":{"status":"erro","mensagem":"0 produto(s) processado(s) com sucesso","erros":["Produto TESTE - ahahahahah: já existe promoção ativa para este produto no período de 2025-05-26T22:00:02Z a 2025-06-10T22:00:02Z"]}}
+
+[2025-05-26 19:00:44.162761] Erro na API
+Tipo: 409
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 9,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 0,
+      "dataInicio": "2025-05-26T22:00:42Z",
+      "dataFim": "2025-06-10T22:00:42Z"
+    }
+  ]
+}
+Resposta da API: {"detail":{"status":"erro","mensagem":"0 produto(s) processado(s) com sucesso","erros":["Produto TESTE - ahahahahah: já existe promoção ativa para este produto no período de 2025-05-26T22:00:42Z a 2025-06-10T22:00:42Z"]}}
+
+[2025-05-26 19:01:23.433020] Erro na API
+Tipo: 409
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 2913,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 0,
+      "dataInicio": "2025-05-26T22:01:21Z",
+      "dataFim": "2025-06-10T22:01:21Z"
+    }
+  ]
+}
+Resposta da API: {"detail":{"status":"erro","mensagem":"0 produto(s) processado(s) com sucesso","erros":["Produto TESTE - ahahahahah: já existe promoção ativa para este produto no período de 2025-05-26T22:01:21Z a 2025-06-10T22:01:21Z"]}}
+

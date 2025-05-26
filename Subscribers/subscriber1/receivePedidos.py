@@ -1,4 +1,4 @@
-# subscriber_3/receive_promocoes.py
+# subscriber_1/receive_promocoes.py
 import pika
 import json
 import requests
@@ -7,7 +7,7 @@ from datetime import datetime
 # Configurações
 RABBITMQ_URL = "amqps://lmekinzw:2gdlEmnCEF_sOkquhyQiNiKBm_9WP3Mt@jackal.rmq.cloudamqp.com/lmekinzw"
 EXCHANGE_NAME = "promocool_exchange_fanout3"
-QUEUE_NAME = "fila_promocool_3"
+QUEUE_NAME = "fila_promocool_4"
 DLX_EXCHANGE = "promocool_dlx"
 API_URL = "http://127.0.0.1:8000/api/receberPromocao/" 
 
@@ -22,7 +22,7 @@ def setup_rabbitmq():
         durable=True,
         arguments={
             'x-dead-letter-exchange': DLX_EXCHANGE,
-            'x-dead-letter-routing-key': 'dlq'
+            'x-dead-letter-routing-key': 'dlq',
         }
     )
     channel.queue_bind(exchange=EXCHANGE_NAME, queue=QUEUE_NAME)
@@ -60,9 +60,6 @@ def validate_produto(produto):
         if not isinstance(produto[campo], tipo):
             return f"Campo '{campo}' deve ser {tipo.__name__}"
     
-    if produto['porcentagem'] > 100:
-        return "Porcentagem não pode ser > 100%"
-    
     try:
         datetime.fromisoformat(produto['dataInicio'].replace('Z', ''))
         datetime.fromisoformat(produto['dataFim'].replace('Z', ''))
@@ -75,7 +72,7 @@ def callback(ch, method, properties, body):
     try:
         message = json.loads(body)
         print(json.dumps(message, indent=2))
-        
+    
         # Validação local
         if error := validate_message(message):
             print(f"Erro na validação: {error}")

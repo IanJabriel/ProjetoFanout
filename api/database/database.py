@@ -1,5 +1,4 @@
 import sqlite3
-from datetime import datetime
 
 DB_PATH = "promocoes.db"
 
@@ -15,13 +14,17 @@ def init_db():
             porcentagem INTEGER NOT NULL,
             data_inicio TEXT NOT NULL,
             data_fim TEXT NOT NULL,
-            UNIQUE(marca, produto_id, data_inicio)
+            UNIQUE(marca, produto_id, data_inicio),
+            CHECK(data_inicio < data_fim)
         )
     ''') 
     conn.commit()
     conn.close()
 
 def insert_promocao(marca: str, produto: dict):
+    if sobreposicao_promocao(produto['id'], produto['dataInicio'], produto['dataFim']):
+        return False
+        
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     try:
@@ -39,8 +42,9 @@ def insert_promocao(marca: str, produto: dict):
         ))
         conn.commit()
         return True
-    except sqlite3.IntegrityError:
-        return False 
+    except sqlite3.IntegrityError as e:
+        print(f"Erro de integridade: {e}")
+        return False
     finally:
         conn.close()
 
@@ -63,3 +67,28 @@ def get_all_promocoes():
             "data_fim": row[6]
         })
     return promocoes
+
+def ja_processado(produto_id: int) -> bool:
+    """Verifica se o produto já foi processado"""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT 1 FROM promocoes WHERE produto_id = ?", (produto_id,))
+    exists = cursor.fetchone() is not None
+    conn.close()
+    return exists
+
+def sobreposicao_promocao(produto_id: int, data_inicio: str, data_fim: str) -> bool:
+    """Verifica se já existe promoção para o mesmo produto com datas sobrepostas"""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        SELECT 1 FROM promocoes 
+        WHERE produto_id = ? 
+        AND data_inicio < ? 
+        AND data_fim > ?
+    ''', (produto_id, data_fim, data_inicio))
+    
+    exists = cursor.fetchone() is not None
+    conn.close()
+    return exists
