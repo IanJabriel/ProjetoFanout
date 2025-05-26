@@ -13,4 +13,3 @@ class PromocaoResponse(BaseModel):
     porcentagem: int
     data_inicio: str
     data_fim: str
-    data_registro: str

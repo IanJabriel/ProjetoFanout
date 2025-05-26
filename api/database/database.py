@@ -15,7 +15,6 @@ def init_db():
             porcentagem INTEGER NOT NULL,
             data_inicio TEXT NOT NULL,
             data_fim TEXT NOT NULL,
-            data_registro TEXT DEFAULT CURRENT_TIMESTAMP,
             UNIQUE(marca, produto_id, data_inicio)
         )
     ''') 
@@ -48,7 +47,7 @@ def insert_promocao(marca: str, produto: dict):
 def get_all_promocoes():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute('SELECT id, marca, nome, produto_id, porcentagem, data_inicio, data_fim, data_registro FROM promocoes')
+    cursor.execute('SELECT id, marca, nome, produto_id, porcentagem, data_inicio, data_fim FROM promocoes')
     rows = cursor.fetchall()
     conn.close()
 
@@ -61,7 +60,6 @@ def get_all_promocoes():
             "produto_id": row[3],
             "porcentagem": row[4],
             "data_inicio": row[5],
-            "data_fim": row[6],
-            "data_registro": row[7],
+            "data_fim": row[6]
         })
     return promocoes

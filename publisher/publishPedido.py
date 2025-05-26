@@ -16,13 +16,13 @@ channel.exchange_declare(
     durable=True)
 
 mensagem = {
-    "marca": "Adidas",
+    "marca": "New Balance",
     "produtos": [
         {
-            "id": 123,
-            "nome": "Peita Real Madrid",
-            "preco": 799.99,
-            "porcentagem": 15,
+            "id": 1935,
+            "nome": "Peita São Paulo",
+            "preco": 499.99,
+            "porcentagem": 10,
             "dataInicio": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
             "dataFim": (datetime.utcnow() + timedelta(days=15)).strftime("%Y-%m-%dT%H:%M:%SZ")
         }

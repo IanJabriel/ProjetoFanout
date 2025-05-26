@@ -9,7 +9,7 @@ RABBITMQ_URL = "amqps://lmekinzw:2gdlEmnCEF_sOkquhyQiNiKBm_9WP3Mt@jackal.rmq.clo
 EXCHANGE_NAME = "promocool_exchange_fanout3"
 QUEUE_NAME = "fila_promocool_3"
 DLX_EXCHANGE = "promocool_dlx"
-API_URL = "http://127.0.0.1:8000/receberPromocao/"
+API_URL = "http://127.0.0.1:8000/api/receberPromocao/" 
 
 def setup_rabbitmq():
     params = pika.URLParameters(RABBITMQ_URL)
