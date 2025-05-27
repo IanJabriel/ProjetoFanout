@@ -66,3 +66,86 @@ Mensagem Original: {
 }
 Resposta da API: {"detail":{"status":"erro","mensagem":"0 produto(s) processado(s) com sucesso","erros":["Produto TESTE - ahahahahah: já existe promoção ativa para este produto no período de 2025-05-26T22:01:21Z a 2025-06-10T22:01:21Z"]}}
 
+[2025-05-26 19:21:23.247281] Erro na API
+Tipo: 422
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 2913,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 200,
+      "dataInicio": "2025-05-26T22:21:21Z",
+      "dataFim": "2025-06-10T22:21:21Z"
+    }
+  ]
+}
+Resposta da API: {"detail":[{"type":"value_error","loc":["body","produtos",0,"porcentagem"],"msg":"Value error, Porcentagem não pode ser maior que 100","input":200,"ctx":{"error":{}}}]}
+
+[2025-05-26 19:22:12.041917] Erro Inesperado
+Tipo: KeyError
+Detalhes: 'preco'
+Mensagem Original: {"marca": "TESTE", "produtos": [{"id": 29123234, "nome": "TESTE - ahahahahah", "porcentagem": 200, "dataInicio": "2025-05-26T22:22:10Z", "dataFim": "2025-06-10T22:22:10Z"}]}
+
+[2025-05-26 19:23:24.987677] Erro Inesperado
+Tipo: KeyError
+Detalhes: 'preco'
+Mensagem Original: {"marca": "TESTE", "produtos": [{"id": 29123234, "nome": "TESTE - ahahahahah", "porcentagem": 20, "dataInicio": "2025-05-26T22:23:23Z", "dataFim": "2025-06-10T22:23:23Z"}]}
+
+[2025-05-26 23:11:07.956153] Erro Inesperado
+Tipo: KeyError
+Detalhes: 'preco'
+Mensagem Original: {"marca": "TESTE", "produtos": [{"id": 29123234, "nome": "TESTE - ahahahahah", "porcentagem": 20, "dataInicio": "2025-05-27T02:11:06Z", "dataFim": "2025-06-11T02:11:06Z"}]}
+
+[2025-05-26 23:12:56.563170] Erro na API
+Tipo: 409
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 2912324,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 20,
+      "dataInicio": "2025-05-27T02:12:55Z",
+      "dataFim": "2025-06-11T02:12:55Z"
+    }
+  ]
+}
+Resposta da API: {"detail":{"status":"erro","mensagem":"0 produto(s) processado(s) com sucesso","erros":["Produto TESTE - ahahahahah: já existe promoção ativa para este produto no período de 2025-05-27T02:12:55Z a 2025-06-11T02:12:55Z"]}}
+
+[2025-05-26 23:13:20.025307] Erro na API
+Tipo: 422
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 291232,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 200,
+      "dataInicio": "2025-05-27T02:13:18Z",
+      "dataFim": "2025-06-11T02:13:18Z"
+    }
+  ]
+}
+Resposta da API: {"detail":[{"type":"value_error","loc":["body","produtos",0,"porcentagem"],"msg":"Value error, Porcentagem não pode ser maior que 100","input":200,"ctx":{"error":{}}}]}
+
+[2025-05-26 23:13:52.438838] Erro na API
+Tipo: 422
+Mensagem Original: {
+  "marca": "TESTE",
+  "produtos": [
+    {
+      "id": 2912321,
+      "nome": "TESTE - ahahahahah",
+      "preco": 19.99,
+      "porcentagem": 200,
+      "dataInicio": "2025-05-27T02:13:50Z",
+      "dataFim": "2025-06-11T02:13:50Z"
+    }
+  ]
+}
+Resposta da API: {"detail":[{"type":"value_error","loc":["body","produtos",0,"porcentagem"],"msg":"Value error, Porcentagem não pode ser maior que 100","input":200,"ctx":{"error":{}}}]}
+

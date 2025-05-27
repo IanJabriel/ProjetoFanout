@@ -19,10 +19,10 @@ mensagem = {
     "marca": "TESTE",
     "produtos": [
         {
-            "id": 2913,
-            "nome": "TESTE - ahahahahah",
+            "id": 1,
+            "nome": "TESTE - produto",
             "preco": 19.99,
-            "porcentagem": 0,
+            "porcentagem": 20,
             "dataInicio": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
             "dataFim": (datetime.utcnow() + timedelta(days=15)).strftime("%Y-%m-%dT%H:%M:%SZ")
         }

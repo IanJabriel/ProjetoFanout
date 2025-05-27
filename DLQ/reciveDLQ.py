@@ -1,4 +1,3 @@
-# subscriber_3/receive_dlq.py
 import pika
 import json
 from pprint import pprint

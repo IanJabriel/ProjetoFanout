@@ -11,12 +11,7 @@ async def receber_promocao(promocao: PromocaoRequest):
     erros = []
     produtos_processados = 0
 
-
     for produto in promocao.produtos:
-        if produto.porcentagem > 100:
-            erros.append(f"Produto {produto.nome}: porcentagem inválida (>100%)")
-            continue
-
         if sobreposicao_promocao(produto.id, produto.dataInicio, produto.dataFim):
             erros.append(
                 f"Produto {produto.nome}: já existe promoção ativa para este produto "
